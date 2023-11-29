@@ -9,9 +9,6 @@ import (
   "bytes"
 	"encoding/json"
   "io"
-  "strings"
-  "errors"
-
 )
 
 type TangoGuessResponse struct {
@@ -26,7 +23,7 @@ func submitCorrectAnswer(arr []int) {
 
   client := &http.Client{}
 
-  payload, err := json.Marshal(map[string]string{"myGuess": arr})
+  payload, err := json.Marshal(map[string][]int{"myGuess": arr})
   if err != nil {
     log.Fatal("Error encoding JSON:", err)
   }
